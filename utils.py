@@ -16,7 +16,7 @@ def extract_text(file):
         return "Format file tidak didukung"
 
 def extract_bab1(text):
-    match = re.search(r'(BAB\s*I\s*Pendahuluan.*?)(BAB\s*II|DAFTAR PUSTAKA)', text, re.DOTALL | re.IGNORECASE)
+   match = re.search(r'(?i)\bBAB\s*[I1]\b(.*?)(?=\bBAB\s*[II2]\b|DAFTAR PUSTAKA|$)', text, re.DOTALL)
     return match.group(1) if match else "Bab I tidak ditemukan"
 
 def analyze_bab1(bab1_text):
